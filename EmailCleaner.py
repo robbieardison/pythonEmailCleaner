@@ -18,14 +18,13 @@ imap.select("FLOAT")
 # search for specific mails by sender
 status, messages = imap.search(None, 'FROM "notification@koinworks.com"')
 
+#The comments below are examples of using other imap.search criterias. You should only use one search line per script.
 # to get mails by subject
 #status, messages = imap.search(None, 'SUBJECT "Thanks for Subscribing to our Newsletter !"')
-
 # to get mails after a specific date
 #status, messages = imap.search(None, 'SINCE "01-JAN-2020"')
 # to get mails before a specific date
 #status, messages = imap.search(None, 'BEFORE "01-JAN-2020"')
-
 # to get all mails
 #status, messages = imap.search(None, "ALL")
 
@@ -33,7 +32,7 @@ status, messages = imap.search(None, 'FROM "notification@koinworks.com"')
 messages = messages[0].split(b' ') 
 
 print("Deleting mails")
-count =1
+count = 1
 for mail in messages:
     # mark the mail as deleted
     imap.store(mail, "+FLAGS", "\\Deleted")
